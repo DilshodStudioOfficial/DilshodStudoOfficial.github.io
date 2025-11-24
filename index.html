@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>DILSHOD SAMARKAND — Official Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Официальный сайт артиста и продюсера Dilshod Samarkand. Музыка, релизы, клипы и контакты для сотрудничества." />
+
+  <style>
+    :root {
+      --bg-dark: #050816;
+      --bg-block: #0f172a;
+      --accent: #38bdf8;
+      --accent2: #f97316;
+      --text: #e5e7eb;
+      --subtext: #9ca3af;
+      --border: #1f2937;
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* HEADER */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(14px);
+      background: rgba(15, 23, 42, 0.82);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .logo-circle {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #22c55e, #06b6d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      color: var(--subtext);
+      transition: 0.18s ease;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    /* MAIN LAYOUT */
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .container {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow:
+        0 22px 60px rgba(15, 23, 42, 0.85),
+        0 0 0 1px rgba(15, 23, 42, 0.9);
+      padding: 18px 18px 20px;
+    }
+
+    .card + .card {
+      margin-top: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--subtext);
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.3);
+    }
+
+    .hero-title {
+      font-size: clamp(26px, 4vw, 32px);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      background: linear-gradient(120deg, #22c55e, #0ea5e9, #a855f7);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      margin-top: 4px;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--subtext);
+    }
+
+    .hero-text {
+      margin-top: 12px;
+      font-size: 14px;
+      color: var(--subtext);
+    }
+
+    .hero-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .pill {
+      padding: 7px 10px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .pill-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--subtext);
+    }
+
+    .pill-value {
+      font-weight: 600;
+    }
+
+    /* PLAYER */
+
+    .player {
+      margin-top: 14px;
+      padding: 10px;
+      border-radius: 14px;
+      background: radial-gradient(circle at top, #0f172a 0, #020617 70%);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .player-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--subtext);
+    }
+
+    .player-track {
+      margin-top: 4px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .player-bar {
+      margin-top: 10px;
+      height: 6px;
+      border-radius: 999px;
+      background: #020617;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .player-bar span {
+      position: absolute;
+      inset: 0;
+      width: 55%;
+      background: linear-gradient(90deg, #22c55e, #0ea5e9, #a855f7);
+    }
+
+    .player-buttons {
+      margin-top: 9px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .btn {
+      flex: 1;
+      min-width: 130px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 13px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.96);
+      color: var(--text);
+      text-align: center;
+      cursor: pointer;
+      transition: 0.17s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      border-color: transparent;
+      background: linear-gradient(135deg, #22c55e, #0ea5e9);
+      color: #020617;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.8);
+    }
+
+    .btn-icon {
+      font-size: 14px;
+    }
+
+    /* RIGHT COLUMN */
+
+    .section-title {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--subtext);
+      margin-bottom: 8px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 14px;
+    }
+
+    .list-item {
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .list-item span {
+      color: var(--subtext);
+      font-size: 13px;
+    }
+
+    .chip {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--subtext);
+    }
+
+    /* SOCIAL */
+
+    .social-grid {
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 10px;
+    }
+
+    .social-card {
+      padding: 9px 10px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      font-size: 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      transition: 0.18s ease;
+    }
+
+    .social-card:hover {
+      border-color: rgba(56, 189, 248, 0.8);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
+      transform: translateY(-2px);
+    }
+
+    .social-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--subtext);
+    }
+
+    .social-name {
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid #111827;
+      background: #020617;
+      color: var(--subtext);
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 16px 14px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-circle">DS</div>
+        <div>
+          <div style="font-size:12px; text-transform:uppercase; color:#9ca3af;">Official artist website</div>
+          <div style="font-size:13px;">Dilshod Samarkand</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#music">Музыка</a>
+        <a href="#about">Обо мне</a>
+        <a href="#video">Видео</a>
+        <a href="#contacts">Контакты</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+    <section class="container">
+
+      <!-- LEFT COLUMN -->
+      <div>
+
+        <!-- HERO -->
+        <div class="card" id="about">
+          <div class="badge">
+            <span class="badge-dot"></span>
+            Dilshod Studio · Rap / Hip-Hop / Pop
+          </div>
+          <h1 class="hero-title">
+            <span>DILSHOD SAMARKAND</span>
+          </h1>
+          <div class="hero-subtitle">
+            ARTIST · PRODUCER · SONGWRITER
+          </div>
+          <p class="hero-text">
+            Официальный сайт музыканта Dilshod Samarkand. Здесь вы найдёте мои релизы,
+            авторские треки, клипы и ссылки на музыкальные платформы и соцсети.
+          </p>
+
+          <div class="hero-grid">
+            <div class="pill">
+              <div class="pill-label">Город</div>
+              <div class="pill-value">Самарканд, Узбекистан</div>
+            </div>
+            <div class="pill">
+              <div class="pill-label">Жанры</div>
+              <div class="pill-value">Rap · Hip-Hop · Pop</div>
+            </div>
+            <div class="pill">
+              <div class="pill-label">Языки</div>
+              <div class="pill-value">Русский · O‘zbek · English</div>
+            </div>
+          </div>
+
+          <!-- SIMPLE PLAYER / CTA -->
+          <div class="player" id="music">
+            <div class="player-title">Последний релиз</div>
+            <div class="player-track">«Mother» – Dilshod Samarkand</div>
+
+            <div class="player-bar">
+              <span></span>
+            </div>
+
+            <div class="player-buttons">
+              <a class="btn btn-primary" href="https://open.spotify.com/user/3164tvjko3p44penemshapz5bsrm?si=i5LDUnd0S_uvURd5t0vYNg" target="_blank" rel="noopener">
+                <span class="btn-icon">▶</span> Слушать на Spotify
+              </a>
+              <a class="btn" href="https://vk.ru/dilshodstudioofficial" target="_blank" rel="noopener">
+                VK Музыка
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RELEASES -->
+        <div class="card">
+          <div class="section-title">Релизы</div>
+          <div class="list">
+            <div class="list-item">
+              <div>
+                Mother<br />
+                <span>Сингл · авторская композиция</span>
+              </div>
+              <div class="chip">LATEST</div>
+            </div>
+            <div class="list-item">
+              <div>
+                Родной Самарканд<br />
+                <span>Rap / Hip-Hop · цифровой релиз</span>
+              </div>
+              <div class="chip">SINGLE</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT COLUMN -->
+      <div>
+
+        <!-- VIDEO / YOUTUBE -->
+        <div class="card" id="video">
+          <div class="section-title">Видео</div>
+          <p style="font-size:14px; color:var(--subtext); margin-bottom:10px;">
+            Клип «Mother», лайвы, бэкстейдж и другие видео в моих соцсетях.
+          </p>
+          <a class="btn btn-primary" href="https://tiktok.com/@dilshostudio" target="_blank" rel="noopener">
+            <span class="btn-icon">🎬</span> Смотреть в TikTok
+          </a>
+        </div>
+
+        <!-- SOCIALS -->
+        <div class="card" id="contacts">
+          <div class="section-title">Социальные сети</div>
+          <div class="social-grid">
+
+            <a class="social-card" href="https://vk.ru/dilshodstudioofficial" target="_blank" rel="noopener">
+              <div class="social-label">VK</div>
+              <div class="social-name">dilshodstudioofficial</div>
+              <div style="font-size:12px; color:var(--subtext);">Паблик, музыка, новости</div>
+            </a>
+
+            <a class="social-card" href="https://www.instagram.com/dilshodstudiostyleofficial?igsh=MTRjemJ4OHdxcjNudQ==" target="_blank" rel="noopener">
+              <div class="social-label">Instagram</div>
+              <div class="social-name">@dilshodstudiostyleofficial</div>
+              <div style="font-size:12px; color:var(--subtext);">Фото, сторис, behind the scenes</div>
+            </a>
+
+            <a class="social-card" href="https://tiktok.com/@dilshostudio" target="_blank" rel="noopener">
+              <div class="social-label">TikTok</div>
+              <div class="social-name">@dilshostudio</div>
+              <div style="font-size:12px; color:var(--subtext);">Short-видео и промо</div>
+            </a>
+
+            <a class="social-card" href="https://open.spotify.com/user/3164tvjko3p44penemshapz5bsrm?si=i5LDUnd0S_uvURd5t0vYNg" target="_blank" rel="noopener">
+              <div class="social-label">Spotify</div>
+              <div class="social-name">Dilshod Samarkand</div>
+              <div style="font-size:12px; color:var(--subtext);">Стриминг и плейлисты</div>
+            </a>
+
+            <a class="social-card" href="https://ok.ru/profile/604981243179?utm_campaign=android_share&utm_content=profile" target="_blank" rel="noopener">
+              <div class="social-label">OK.ru</div>
+              <div class="social-name">Dilshod Samarkand</div>
+              <div style="font-size:12px; color:var(--subtext);">Профиль и публикации</div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- CONTACTS INFO -->
+        <div class="card">
+          <div class="section-title">Бронирование и связи</div>
+          <div class="list">
+            <div class="list-item">
+              <div>
+                Менеджмент / сотрудничество<br />
+                <span>Пишите в личные сообщения VK или Instagram</span>
+              </div>
+            </div>
+            <div class="list-item">
+              <div>
+                Для плейлистов, блогеров и лейблов<br />
+                <span>Ссылка на этот сайт: <strong>dilshodsamarkand.github.io</strong></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div>© <span id="year"></span> Dilshod Samarkand. All rights reserved.</div>
+      <div>Site powered by GitHub Pages.</div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // год в футере
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
