@@ -1,23 +1,28 @@
+<button class="btn btn-subscribe" onclick="alert('Здесь позже сделаем форму подписки 📩');">
+  Подписаться на релизы
+</button>
+<form action="https://formsubmit.co/support@dilshodstudioofficial.com" method="POST" style="margin-top:12px;">
+  <input type="email" name="email" placeholder="Введите ваш Email"
+    required
+    style="width:100%;padding:12px 18px;border-radius:20px; border:1px solid #ccc;font-size:14px;outline:none;" />
+
+  <!-- Защита от спама (оставить как есть) -->
+  <input type="hidden" name="_captcha" value="true" />
+  <input type="hidden" name="_subject" value="Новая подписка с сайта DILSHOD STUDIO" />
+  <input type="hidden" name="_next" value="https://dilshodstudioofficial.com" />
+
+  <button type="submit" class="btn btn-download"
+    style="margin-top:12px;width:100%;border-radius:20px;font-size:15px;">
+    Подписаться ✅
+  </button>
+</form>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>DILSHOD SAMARKAND — Official Website</title>
+  <title>DILSHOD STUDIO Official</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Официальный сайт артиста и продюсера Dilshod Samarkand. Музыка, релизы, клипы и контакты для сотрудничества." />
-
   <style>
-    :root {
-      --bg-dark: #050816;
-      --bg-block: #0f172a;
-      --accent: #38bdf8;
-      --accent2: #f97316;
-      --text: #e5e7eb;
-      --subtext: #9ca3af;
-      --border: #1f2937;
-      --radius: 18px;
-    }
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -26,120 +31,100 @@
 
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top, #1f2937 0, #020617 55%, #000 100%);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    /* HEADER */
-
-    .page {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      backdrop-filter: blur(14px);
-      background: rgba(15, 23, 42, 0.82);
-      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
-    }
-
-    .nav {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-    }
-
-    .logo-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #22c55e, #06b6d4);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 18px;
+      color: #111827;
+      background: radial-gradient(circle at top left, #f9fafb, #e5e7eb);
+      overflow: hidden;
     }
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-size: 14px;
+    /* ФОН РЕГИСТАН */
+    .background {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/0/01/Registan_Samarkand_sunset_square.jpg")
+        center/cover no-repeat;
+      filter: saturate(1.1);
+      opacity: 0.55;
     }
 
-    .nav-links a {
-      padding: 6px 11px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-      color: var(--subtext);
-      transition: 0.18s ease;
-    }
-    .nav-links a:hover {
-      color: var(--text);
-      border-color: rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-    }
-
-    /* MAIN LAYOUT */
-
-    main {
-      flex: 1;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 22px 16px 40px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 22px;
-    }
-
-    @media (max-width: 860px) {
-      .container {
-        grid-template-columns: minmax(0, 1fr);
-      }
+    .pearl-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background: radial-gradient(circle at top left, #ffffffcc, #f3f4f6ee);
+      backdrop-filter: blur(3px);
     }
 
     .card {
-      background: rgba(15, 23, 42, 0.96);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
+      width: min(900px, 100%);
+      margin: 24px;
+      border-radius: 32px;
+      background: #f9fafbfa;
       box-shadow:
-        0 22px 60px rgba(15, 23, 42, 0.85),
-        0 0 0 1px rgba(15, 23, 42, 0.9);
-      padding: 18px 18px 20px;
+        0 22px 70px rgba(15, 23, 42, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.5);
+      padding: 32px 32px 28px;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
+      gap: 24px;
+      animation: fadeUp 0.8s ease forwards;
+      transform: translateY(20px);
+      opacity: 0;
     }
 
-    .card + .card {
-      margin-top: 16px;
+    @keyframes fadeUp {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .card {
+        grid-template-columns: 1fr;
+        padding: 24px 20px 20px;
+      }
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ЛОГОТИП + НАЗВАНИЕ */
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow:
+        0 0 0 2px #f9fafb,
+        0 0 0 4px rgba(15, 23, 42, 0.4);
+    }
+
+    .logo-text-main {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .logo-text-sub {
+      font-size: 11px;
+      color: #6b7280;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
     }
 
     .badge {
@@ -147,453 +132,348 @@
       align-items: center;
       gap: 8px;
       font-size: 11px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--subtext);
-      margin-bottom: 8px;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
+      color: #6b7280;
     }
 
     .badge-dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 5px rgba(34, 197, 94, 0.3);
+      background: linear-gradient(135deg, #22c55e, #a3e635);
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
     }
 
-    .hero-title {
-      font-size: clamp(26px, 4vw, 32px);
-      font-weight: 800;
-      letter-spacing: 0.03em;
+    h1 {
+      font-size: clamp(28px, 3.1vw, 36px);
+      line-height: 1.1;
+      letter-spacing: 0.04em;
       text-transform: uppercase;
     }
 
-    .hero-title span {
-      background: linear-gradient(120deg, #22c55e, #0ea5e9, #a855f7);
+    .accent {
+      background: linear-gradient(130deg, #0ea5e9, #22c55e, #eab308);
       -webkit-background-clip: text;
       color: transparent;
     }
 
-    .hero-subtitle {
+    .subtitle {
       margin-top: 4px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--subtext);
-    }
-
-    .hero-text {
-      margin-top: 12px;
       font-size: 14px;
-      color: var(--subtext);
+      color: #4b5563;
+      max-width: 460px;
     }
 
-    .hero-grid {
+    .buttons {
       margin-top: 16px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .pill {
-      padding: 7px 10px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 12px;
+    .btn {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 12px 26px;
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
+        color 0.18s ease, border-color 0.18s ease;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-player {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      background: rgba(15, 23, 42, 0.88);
+      color: #f9fafb;
+      box-shadow: 0 12px 30px rgba(8, 47, 73, 0.6);
+      position: relative;
+    }
+
+    .btn-player::before {
+      content: "";
+      position: absolute;
+      inset: -2px;
+      border-radius: inherit;
+      padding: 1px;
+      background: conic-gradient(from 160deg, #22c55e, #0ea5e9, #eab308, #22c55e);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0.7;
+    }
+
+    .btn-player-icon {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 20%, #e5e7eb, #9ca3af);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #111827;
+      font-size: 14px;
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.75);
+    }
+
+    .btn-player-text {
+      font-size: 13px;
+    }
+
+    .btn-download {
+      background: rgba(249, 250, 251, 0.7);
+      color: #111827;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      backdrop-filter: blur(4px);
+    }
+
+    .btn-download:hover {
+      transform: translateY(-2px);
+      background: #e5e7eb;
+      border-color: #0ea5e9;
+    }
+
+    .btn-download span.icon {
+      font-size: 16px;
+    }
+
+    /* ФОРМА ПОДПИСКИ */
+    .subscribe-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border-radius: 20px;
+      background: rgba(249, 250, 251, 0.9);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
+    .subscribe-title {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subscribe-hint {
+      font-size: 11px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .subscribe-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .subscribe-row input[type="email"] {
+      flex: 1 1 180px;
+      min-width: 0;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      font-size: 13px;
+      outline: none;
+    }
+
+    .subscribe-row input[type="email"]:focus {
+      border-color: #0ea5e9;
+      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.3);
+    }
+
+    .subscribe-row button {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg, #0ea5e9, #22c55e);
+      color: #f9fafb;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.45);
+    }
+
+    .subscribe-row button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(16, 185, 129, 0.65);
+    }
+
+    /* ПРАВАЯ ЧАСТЬ */
+    .side {
+      border-radius: 24px;
+      padding: 18px 18px 16px;
+      background: radial-gradient(circle at top left, #111827, #020617);
+      color: #e5e7eb;
+      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.25);
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 12px;
     }
 
-    .pill-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--subtext);
-    }
-
-    .pill-value {
-      font-weight: 600;
-    }
-
-    /* PLAYER */
-
-    .player {
-      margin-top: 14px;
-      padding: 10px;
-      border-radius: 14px;
-      background: radial-gradient(circle at top, #0f172a 0, #020617 70%);
-      border: 1px solid rgba(55, 65, 81, 0.9);
-    }
-
-    .player-title {
+    .side-title {
       font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--subtext);
+      letter-spacing: 0.18em;
+      color: #9ca3af;
     }
 
-    .player-track {
+    .track-name {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .progress {
       margin-top: 4px;
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .player-bar {
-      margin-top: 10px;
-      height: 6px;
+      width: 100%;
+      height: 5px;
       border-radius: 999px;
-      background: #020617;
+      background: rgba(30, 64, 175, 0.7);
       overflow: hidden;
       position: relative;
     }
 
-    .player-bar span {
+    .progress-fill {
       position: absolute;
       inset: 0;
-      width: 55%;
-      background: linear-gradient(90deg, #22c55e, #0ea5e9, #a855f7);
+      transform-origin: left;
+      background: linear-gradient(90deg, #22c55e, #0ea5e9, #eab308);
+      animation: playing 7s linear infinite;
     }
 
-    .player-buttons {
-      margin-top: 9px;
+    @keyframes playing {
+      0% {
+        transform: scaleX(0.05);
+      }
+      100% {
+        transform: scaleX(1);
+      }
+    }
+
+    .side-footer {
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .btn {
-      flex: 1;
-      min-width: 130px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 13px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.96);
-      color: var(--text);
-      text-align: center;
-      cursor: pointer;
-      transition: 0.17s ease;
-      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .btn-primary {
-      border-color: transparent;
-      background: linear-gradient(135deg, #22c55e, #0ea5e9);
-      color: #020617;
-      font-weight: 600;
-    }
-
-    .btn:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.8);
-    }
-
-    .btn-icon {
-      font-size: 14px;
-    }
-
-    /* RIGHT COLUMN */
-
-    .section-title {
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--subtext);
-      margin-bottom: 8px;
-    }
-
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 14px;
-    }
-
-    .list-item {
-      padding: 8px 10px;
-      border-radius: 12px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      display: flex;
       justify-content: space-between;
-      align-items: center;
-      gap: 10px;
+      font-size: 11px;
+      color: #9ca3af;
+      margin-top: 6px;
     }
 
-    .list-item span {
-      color: var(--subtext);
-      font-size: 13px;
-    }
-
-    .chip {
-      padding: 3px 8px;
+    .pill {
+      padding: 4px 10px;
       border-radius: 999px;
       background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--subtext);
-    }
-
-    /* SOCIAL */
-
-    .social-grid {
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 10px;
-    }
-
-    .social-card {
-      padding: 9px 10px;
-      border-radius: 14px;
-      background: rgba(15, 23, 42, 0.95);
-      border: 1px solid rgba(31, 41, 55, 0.95);
-      font-size: 13px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      transition: 0.18s ease;
-    }
-
-    .social-card:hover {
-      border-color: rgba(56, 189, 248, 0.8);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.9);
-      transform: translateY(-2px);
-    }
-
-    .social-label {
-      font-size: 11px;
-      text-transform: uppercase;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      font-size: 10px;
       letter-spacing: 0.16em;
-      color: var(--subtext);
-    }
-
-    .social-name {
-      font-weight: 600;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid #111827;
-      background: #020617;
-      color: var(--subtext);
-      font-size: 11px;
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 10px 16px 14px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 8px;
-      align-items: center;
+      text-transform: uppercase;
     }
   </style>
 </head>
 <body>
-<div class="page">
+  <div class="background"></div>
+  <div class="pearl-overlay"></div>
 
-  <!-- HEADER -->
-  <header>
-    <nav class="nav">
-      <div class="logo">
-        <div class="logo-circle">DS</div>
+  <main class="card">
+    <section class="brand">
+      <!-- ЛОГОТИП + НАЗВАНИЕ -->
+      <div class="logo-row">
+        <!-- ЗАМЕНИ src НА СВОЮ КАРТИНКУ ЛОГО -->
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Registan_mosaic_detail.jpg/320px-Registan_mosaic_detail.jpg"
+          alt="Dilshod Studio Logo"
+          class="logo-img"
+        />
         <div>
-          <div style="font-size:12px; text-transform:uppercase; color:#9ca3af;">Official artist website</div>
-          <div style="font-size:13px;">Dilshod Samarkand</div>
+          <div class="logo-text-main">DILSHOD STUDIO</div>
+          <div class="logo-text-sub">SAMARKAND · OFFICIAL</div>
         </div>
       </div>
-      <div class="nav-links">
-        <a href="#music">Музыка</a>
-        <a href="#about">Обо мне</a>
-        <a href="#video">Видео</a>
-        <a href="#contacts">Контакты</a>
-      </div>
-    </nav>
-  </header>
 
-  <!-- MAIN -->
-  <main>
-    <section class="container">
-
-      <!-- LEFT COLUMN -->
-      <div>
-
-        <!-- HERO -->
-        <div class="card" id="about">
-          <div class="badge">
-            <span class="badge-dot"></span>
-            Dilshod Studio · Rap / Hip-Hop / Pop
-          </div>
-          <h1 class="hero-title">
-            <span>DILSHOD SAMARKAND</span>
-          </h1>
-          <div class="hero-subtitle">
-            ARTIST · PRODUCER · SONGWRITER
-          </div>
-          <p class="hero-text">
-            Официальный сайт музыканта Dilshod Samarkand. Здесь вы найдёте мои релизы,
-            авторские треки, клипы и ссылки на музыкальные платформы и соцсети.
-          </p>
-
-          <div class="hero-grid">
-            <div class="pill">
-              <div class="pill-label">Город</div>
-              <div class="pill-value">Самарканд, Узбекистан</div>
-            </div>
-            <div class="pill">
-              <div class="pill-label">Жанры</div>
-              <div class="pill-value">Rap · Hip-Hop · Pop</div>
-            </div>
-            <div class="pill">
-              <div class="pill-label">Языки</div>
-              <div class="pill-value">Русский · O‘zbek · English</div>
-            </div>
-          </div>
-
-          <!-- SIMPLE PLAYER / CTA -->
-          <div class="player" id="music">
-            <div class="player-title">Последний релиз</div>
-            <div class="player-track">«Mother» – Dilshod Samarkand</div>
-
-            <div class="player-bar">
-              <span></span>
-            </div>
-
-            <div class="player-buttons">
-              <a class="btn btn-primary" href="https://open.spotify.com/user/3164tvjko3p44penemshapz5bsrm?si=i5LDUnd0S_uvURd5t0vYNg" target="_blank" rel="noopener">
-                <span class="btn-icon">▶</span> Слушать на Spotify
-              </a>
-              <a class="btn" href="https://vk.ru/dilshodstudioofficial" target="_blank" rel="noopener">
-                VK Музыка
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- RELEASES -->
-        <div class="card">
-          <div class="section-title">Релизы</div>
-          <div class="list">
-            <div class="list-item">
-              <div>
-                Mother<br />
-                <span>Сингл · авторская композиция</span>
-              </div>
-              <div class="chip">LATEST</div>
-            </div>
-            <div class="list-item">
-              <div>
-                Родной Самарканд<br />
-                <span>Rap / Hip-Hop · цифровой релиз</span>
-              </div>
-              <div class="chip">SINGLE</div>
-            </div>
-          </div>
-        </div>
-
+      <div class="badge">
+        <span class="badge-dot"></span>
+        NEW RELEASES · EXCLUSIVE
       </div>
 
-      <!-- RIGHT COLUMN -->
-      <div>
+      <h1>
+        SAMARKAND <span class="accent">SOUND&nbsp;DESIGN</span>
+      </h1>
 
-        <!-- VIDEO / YOUTUBE -->
-        <div class="card" id="video">
-          <div class="section-title">Видео</div>
-          <p style="font-size:14px; color:var(--subtext); margin-bottom:10px;">
-            Клип «Mother», лайвы, бэкстейдж и другие видео в моих соцсетях.
-          </p>
-          <a class="btn btn-primary" href="https://tiktok.com/@dilshostudio" target="_blank" rel="noopener">
-            <span class="btn-icon">🎬</span> Смотреть в TikTok
-          </a>
+      <p class="subtitle">
+        Эксклюзивные треки, саунд-дизайн и авторские проекты. Подпишитесь,
+        чтобы первыми получать новые релизы и приватные демо.
+      </p>
+
+      <!-- КНОПКИ -->
+      <div class="buttons">
+        <button class="btn btn-player">
+          <span class="btn-player-icon">▶</span>
+          <span class="btn-player-text">Слушать превью</span>
+        </button>
+
+        <a class="btn btn-download" href="#" download>
+          <span class="icon">⬇</span>
+          Скачать демо-трек
+        </a>
+      </div>
+
+      <!-- ФОРМА ПОДПИСКИ -->
+      <div class="subscribe-box">
+        <div class="subscribe-title">Подписка на релизы</div>
+        <div class="subscribe-hint">
+          Оставьте e-mail — мы пришлём новые треки, демо и эксклюзивы от DILSHOD STUDIO.
         </div>
+        <form
+          action="https://formsubmit.co/support@dilshodstudioofficial.com"
+          method="POST"
+        >
+          <!-- защита и настройки -->
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_subject" value="Новая подписка с сайта DILSHOD STUDIO" />
+          <input type="hidden" name="_next" value="https://dilshodstudioofficial.com" />
 
-        <!-- SOCIALS -->
-        <div class="card" id="contacts">
-          <div class="section-title">Социальные сети</div>
-          <div class="social-grid">
-
-            <a class="social-card" href="https://vk.ru/dilshodstudioofficial" target="_blank" rel="noopener">
-              <div class="social-label">VK</div>
-              <div class="social-name">dilshodstudioofficial</div>
-              <div style="font-size:12px; color:var(--subtext);">Паблик, музыка, новости</div>
-            </a>
-
-            <a class="social-card" href="https://www.instagram.com/dilshodstudiostyleofficial?igsh=MTRjemJ4OHdxcjNudQ==" target="_blank" rel="noopener">
-              <div class="social-label">Instagram</div>
-              <div class="social-name">@dilshodstudiostyleofficial</div>
-              <div style="font-size:12px; color:var(--subtext);">Фото, сторис, behind the scenes</div>
-            </a>
-
-            <a class="social-card" href="https://tiktok.com/@dilshostudio" target="_blank" rel="noopener">
-              <div class="social-label">TikTok</div>
-              <div class="social-name">@dilshostudio</div>
-              <div style="font-size:12px; color:var(--subtext);">Short-видео и промо</div>
-            </a>
-
-            <a class="social-card" href="https://open.spotify.com/user/3164tvjko3p44penemshapz5bsrm?si=i5LDUnd0S_uvURd5t0vYNg" target="_blank" rel="noopener">
-              <div class="social-label">Spotify</div>
-              <div class="social-name">Dilshod Samarkand</div>
-              <div style="font-size:12px; color:var(--subtext);">Стриминг и плейлисты</div>
-            </a>
-
-            <a class="social-card" href="https://ok.ru/profile/604981243179?utm_campaign=android_share&utm_content=profile" target="_blank" rel="noopener">
-              <div class="social-label">OK.ru</div>
-              <div class="social-name">Dilshod Samarkand</div>
-              <div style="font-size:12px; color:var(--subtext);">Профиль и публикации</div>
-            </a>
-
+          <div class="subscribe-row">
+            <input
+              type="email"
+              name="email"
+              placeholder="Ваш e-mail"
+              required
+            />
+            <button type="submit">Подписаться ✅</button>
           </div>
-        </div>
-
-        <!-- CONTACTS INFO -->
-        <div class="card">
-          <div class="section-title">Бронирование и связи</div>
-          <div class="list">
-            <div class="list-item">
-              <div>
-                Менеджмент / сотрудничество<br />
-                <span>Пишите в личные сообщения VK или Instagram</span>
-              </div>
-            </div>
-            <div class="list-item">
-              <div>
-                Для плейлистов, блогеров и лейблов<br />
-                <span>Ссылка на этот сайт: <strong>dilshodsamarkand.github.io</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        </form>
       </div>
     </section>
+
+    <aside class="side">
+      <div>
+        <div class="side-title">Now playing</div>
+        <div class="track-name">Registan Nights · DILSHOD STUDIO</div>
+        <div class="progress">
+          <div class="progress-fill"></div>
+        </div>
+      </div>
+      <div class="side-footer">
+        <div>00:24 / 03:18</div>
+        <div class="pill">SAMARKAND • LIVE</div>
+      </div>
+    </aside>
   </main>
+</body><img
+  src="https://upload.wikimedia.org/..."
+  alt="Dilshod Studio Logo"
+  class="logo-img"
+/>
+action="https://formsubmit.co/support@dilshodstudioofficial.com"
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <div>© <span id="year"></span> Dilshod Samarkand. All rights reserved.</div>
-      <div>Site powered by GitHub Pages.</div>
-    </div>
-  </footer>
-</div>
+</html>/assets/signature.png
 
-<script>
-  // год в футере
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
