@@ -1,479 +1,387 @@
-<button class="btn btn-subscribe" onclick="alert('Здесь позже сделаем форму подписки 📩');">
-  Подписаться на релизы
-</button>
-<form action="https://formsubmit.co/support@dilshodstudioofficial.com" method="POST" style="margin-top:12px;">
-  <input type="email" name="email" placeholder="Введите ваш Email"
-    required
-    style="width:100%;padding:12px 18px;border-radius:20px; border:1px solid #ccc;font-size:14px;outline:none;" />
-
-  <!-- Защита от спама (оставить как есть) -->
-  <input type="hidden" name="_captcha" value="true" />
-  <input type="hidden" name="_subject" value="Новая подписка с сайта DILSHOD STUDIO" />
-  <input type="hidden" name="_next" value="https://dilshodstudioofficial.com" />
-
-  <button type="submit" class="btn btn-download"
-    style="margin-top:12px;width:100%;border-radius:20px;font-size:15px;">
-    Подписаться ✅
-  </button>
-</form>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <title>DILSHOD STUDIO Official</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilshod Studio Official</title>
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       min-height: 100vh;
+      background: url("https://upload.wikimedia.org/wikipedia/commons/4/4e/Registan_Samarkand_2014.jpg")
+                  no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .overlay {
+      min-height: 100vh;
+      background: rgba(255, 255, 255, 0.78);
+      backdrop-filter: blur(4px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px 40px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 960px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .logo-text {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid #222;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #111827;
-      background: radial-gradient(circle at top left, #f9fafb, #e5e7eb);
-      overflow: hidden;
+      font-weight: 700;
+      font-size: 14px;
     }
 
-    /* ФОН РЕГИСТАН */
-    .background {
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background: url("https://upload.wikimedia.org/wikipedia/commons/0/01/Registan_Samarkand_sunset_square.jpg")
-        center/cover no-repeat;
-      filter: saturate(1.1);
-      opacity: 0.55;
+    .nav-buttons {
+      display: flex;
+      gap: 10px;
     }
 
-    .pearl-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      background: radial-gradient(circle at top left, #ffffffcc, #f3f4f6ee);
-      backdrop-filter: blur(3px);
+    .nav-buttons button {
+      border-radius: 999px;
+      border: none;
+      padding: 8px 16px;
+      font-size: 14px;
+      cursor: pointer;
+      background: #f2f2f2;
+    }
+
+    .nav-buttons button:hover {
+      background: #e2e2e2;
+    }
+
+    main {
+      width: 100%;
+      max-width: 960px;
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .nav-buttons {
+        align-self: flex-end;
+      }
     }
 
     .card {
-      width: min(900px, 100%);
-      margin: 24px;
-      border-radius: 32px;
-      background: #f9fafbfa;
-      box-shadow:
-        0 22px 70px rgba(15, 23, 42, 0.35),
-        0 0 0 1px rgba(255, 255, 255, 0.5);
-      padding: 32px 32px 28px;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 2.2fr);
-      gap: 24px;
-      animation: fadeUp 0.8s ease forwards;
-      transform: translateY(20px);
-      opacity: 0;
-    }
-
-    @keyframes fadeUp {
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .card {
-        grid-template-columns: 1fr;
-        padding: 24px 20px 20px;
-      }
-    }
-
-    .brand {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    /* ЛОГОТИП + НАЗВАНИЕ */
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-img {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      object-fit: cover;
-      box-shadow:
-        0 0 0 2px #f9fafb,
-        0 0 0 4px rgba(15, 23, 42, 0.4);
-    }
-
-    .logo-text-main {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      color: #6b7280;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 22px 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
     }
 
     .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      display: inline-block;
       font-size: 11px;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #6b7280;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, #22c55e, #a3e635);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+      color: #777;
+      margin-bottom: 8px;
     }
 
     h1 {
-      font-size: clamp(28px, 3.1vw, 36px);
-      line-height: 1.1;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    .accent {
-      background: linear-gradient(130deg, #0ea5e9, #22c55e, #eab308);
-      -webkit-background-clip: text;
-      color: transparent;
+      font-size: 26px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+      color: #111;
     }
 
     .subtitle {
-      margin-top: 4px;
-      font-size: 14px;
-      color: #4b5563;
-      max-width: 460px;
+      font-size: 13px;
+      color: #555;
+      margin-bottom: 18px;
     }
 
-    .buttons {
-      margin-top: 16px;
+    .primary-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .btn {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      border-radius: 999px;
-      padding: 12px 26px;
-      font-size: 14px;
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
       gap: 10px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease,
-        color 0.18s ease, border-color 0.18s ease;
-      text-decoration: none;
-      white-space: nowrap;
+      margin-bottom: 18px;
     }
 
-    .btn-player {
+    .btn-main {
+      border-radius: 999px;
+      border: none;
       padding: 10px 18px;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.6);
-      background: rgba(15, 23, 42, 0.88);
-      color: #f9fafb;
-      box-shadow: 0 12px 30px rgba(8, 47, 73, 0.6);
-      position: relative;
-    }
-
-    .btn-player::before {
-      content: "";
-      position: absolute;
-      inset: -2px;
-      border-radius: inherit;
-      padding: 1px;
-      background: conic-gradient(from 160deg, #22c55e, #0ea5e9, #eab308, #22c55e);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0.7;
-    }
-
-    .btn-player-icon {
-      width: 24px;
-      height: 24px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 20%, #e5e7eb, #9ca3af);
+      font-size: 14px;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      color: #111827;
-      font-size: 14px;
-      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.75);
+      gap: 6px;
     }
 
-    .btn-player-text {
-      font-size: 13px;
+    .btn-fill {
+      background: #16a34a;
+      color: white;
     }
 
-    .btn-download {
-      background: rgba(249, 250, 251, 0.7);
-      color: #111827;
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      backdrop-filter: blur(4px);
+    .btn-fill:hover {
+      background: #15803d;
     }
 
-    .btn-download:hover {
-      transform: translateY(-2px);
-      background: #e5e7eb;
-      border-color: #0ea5e9;
+    .btn-outline {
+      background: white;
+      color: #111;
+      border: 1px solid #ddd;
     }
 
-    .btn-download span.icon {
-      font-size: 16px;
+    .btn-outline:hover {
+      background: #f5f5f5;
     }
 
-    /* ФОРМА ПОДПИСКИ */
     .subscribe-box {
-      margin-top: 18px;
-      padding: 14px 16px;
-      border-radius: 20px;
-      background: rgba(249, 250, 251, 0.9);
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.18);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-    }
-
-    .subscribe-title {
+      margin-top: 10px;
+      padding-top: 14px;
+      border-top: 1px solid #f0f0f0;
       font-size: 13px;
-      font-weight: 600;
-      margin-bottom: 6px;
     }
 
-    .subscribe-hint {
-      font-size: 11px;
-      color: #6b7280;
-      margin-bottom: 10px;
+    .subscribe-box label {
+      display: block;
+      margin-bottom: 6px;
+      color: #444;
     }
 
     .subscribe-row {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
+      margin-top: 4px;
     }
 
     .subscribe-row input[type="email"] {
-      flex: 1 1 180px;
-      min-width: 0;
-      padding: 10px 14px;
+      flex: 1;
+      padding: 10px 12px;
       border-radius: 999px;
-      border: 1px solid #d1d5db;
-      font-size: 13px;
-      outline: none;
+      border: 1px solid #ddd;
+      font-size: 14px;
     }
 
     .subscribe-row input[type="email"]:focus {
-      border-color: #0ea5e9;
-      box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.3);
+      outline: none;
+      border-color: #16a34a;
+      box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.18);
     }
 
+    /* ВАЖНО: кнопка ПОДПИСАТЬСЯ – РУССКИМИ БУКВАМИ */
     .subscribe-row button {
-      padding: 10px 18px;
       border-radius: 999px;
       border: none;
-      background: linear-gradient(135deg, #0ea5e9, #22c55e);
-      color: #f9fafb;
-      font-size: 13px;
-      font-weight: 600;
+      padding: 10px 16px;
+      background: #16a34a;
+      color: white;
+      font-size: 14px;
       cursor: pointer;
       white-space: nowrap;
-      box-shadow: 0 10px 20px rgba(16, 185, 129, 0.45);
     }
 
     .subscribe-row button:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(16, 185, 129, 0.65);
+      background: #15803d;
     }
 
-    /* ПРАВАЯ ЧАСТЬ */
-    .side {
+    .player-card {
+      background: #020617;
+      color: white;
       border-radius: 24px;
-      padding: 18px 18px 16px;
-      background: radial-gradient(circle at top left, #111827, #020617);
-      color: #e5e7eb;
-      box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.25);
+      padding: 20px 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      justify-content: space-between;
+      min-height: 260px;
     }
 
-    .side-title {
-      font-size: 13px;
+    .player-title {
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #9ca3af;
+      letter-spacing: 0.12em;
+      color: #a5b4fc;
+      margin-bottom: 6px;
     }
 
     .track-name {
-      font-size: 14px;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 4px;
     }
 
-    .progress {
-      margin-top: 4px;
+    .track-meta {
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .progress-bar {
       width: 100%;
-      height: 5px;
+      height: 4px;
       border-radius: 999px;
-      background: rgba(30, 64, 175, 0.7);
+      background: #1f2937;
       overflow: hidden;
-      position: relative;
+      margin-bottom: 10px;
     }
 
-    .progress-fill {
-      position: absolute;
-      inset: 0;
-      transform-origin: left;
-      background: linear-gradient(90deg, #22c55e, #0ea5e9, #eab308);
-      animation: playing 7s linear infinite;
+    .progress-inner {
+      width: 32%;
+      height: 100%;
+      background: linear-gradient(90deg, #a855f7, #22c55e);
     }
 
-    @keyframes playing {
-      0% {
-        transform: scaleX(0.05);
-      }
-      100% {
-        transform: scaleX(1);
-      }
-    }
-
-    .side-footer {
+    .time-row {
       display: flex;
-      align-items: center;
       justify-content: space-between;
       font-size: 11px;
       color: #9ca3af;
-      margin-top: 6px;
+      margin-bottom: 14px;
     }
 
-    .pill {
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      font-size: 10px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+    .player-controls {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+
+    .player-controls button {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: none;
+      background: #111827;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .player-controls button.play {
+      background: #22c55e;
+      color: #022c22;
+      font-size: 20px;
+    }
+
+    .player-footer {
+      font-size: 11px;
+      color: #9ca3af;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="pearl-overlay"></div>
-
-  <main class="card">
-    <section class="brand">
-      <!-- ЛОГОТИП + НАЗВАНИЕ -->
-      <div class="logo-row">
-        <!-- ЗАМЕНИ src НА СВОЮ КАРТИНКУ ЛОГО -->
-        <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Registan_mosaic_detail.jpg/320px-Registan_mosaic_detail.jpg"
-          alt="Dilshod Studio Logo"
-          class="logo-img"
-        />
+  <div class="overlay">
+    <!-- ШАПКА -->
+    <header>
+      <div class="logo-text">
+        <div class="logo-circle">DS</div>
         <div>
-          <div class="logo-text-main">DILSHOD STUDIO</div>
-          <div class="logo-text-sub">SAMARKAND · OFFICIAL</div>
+          <div style="font-size:14px;font-weight:600;">DILSHOD STUDIO</div>
+          <div style="font-size:11px;color:#666;">Samarkand • Official</div>
         </div>
       </div>
 
-      <div class="badge">
-        <span class="badge-dot"></span>
-        NEW RELEASES · EXCLUSIVE
+      <div class="nav-buttons">
+        <button>Главная</button>
+        <button>Релизы</button>
+        <button>Контакты</button>
       </div>
+    </header>
 
-      <h1>
-        SAMARKAND <span class="accent">SOUND&nbsp;DESIGN</span>
-      </h1>
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main>
+      <!-- ЛЕВАЯ КАРТОЧКА -->
+      <section class="card">
+        <div class="badge">НОВЫЕ РЕЛИЗЫ · EXCLUSIVE</div>
+        <h1>SAMARKAND SOUND DESIGN</h1>
+        <p class="subtitle">
+          Эксклюзивные треки, саунд-дизайн и авторские проекты.
+          Подпишитесь, чтобы первыми получать новые релизы и свежие демо.
+        </p>
 
-      <p class="subtitle">
-        Эксклюзивные треки, саунд-дизайн и авторские проекты. Подпишитесь,
-        чтобы первыми получать новые релизы и приватные демо.
-      </p>
-
-      <!-- КНОПКИ -->
-      <div class="buttons">
-        <button class="btn btn-player">
-          <span class="btn-player-icon">▶</span>
-          <span class="btn-player-text">Слушать превью</span>
-        </button>
-
-        <a class="btn btn-download" href="#" download>
-          <span class="icon">⬇</span>
-          Скачать демо-трек
-        </a>
-      </div>
-
-      <!-- ФОРМА ПОДПИСКИ -->
-      <div class="subscribe-box">
-        <div class="subscribe-title">Подписка на релизы</div>
-        <div class="subscribe-hint">
-          Оставьте e-mail — мы пришлём новые треки, демо и эксклюзивы от DILSHOD STUDIO.
+        <div class="primary-buttons">
+          <button class="btn-main btn-fill">🎧 Слушать превью</button>
+          <button class="btn-main btn-outline">⬇ Скачать демо-трек</button>
         </div>
-        <form
-          action="https://formsubmit.co/support@dilshodstudioofficial.com"
-          method="POST"
-        >
-          <!-- защита и настройки -->
-          <input type="hidden" name="_captcha" value="false" />
-          <input type="hidden" name="_subject" value="Новая подписка с сайта DILSHOD STUDIO" />
-          <input type="hidden" name="_next" value="https://dilshodstudioofficial.com" />
 
-          <div class="subscribe-row">
-            <input
-              type="email"
-              name="email"
-              placeholder="Ваш e-mail"
-              required
-            />
-            <button type="submit">Подписаться ✅</button>
+        <!-- ФОРМА ПОДПИСКИ -->
+        <div class="subscribe-box">
+          <label for="email">Подписка на релизы</label>
+          <form
+            action="#"
+            method="POST"
+            onsubmit="alert('Спасибо за подписку!'); return false;"
+          >
+            <div class="subscribe-row">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Ваш e-mail"
+                required
+              />
+              <!-- ВОТ ЗДЕСЬ КНОПКА НА РУССКОМ -->
+              <button type="submit">Подписаться</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ПРАВАЯ КАРТОЧКА – ПЛЕЙЕР -->
+      <aside class="card player-card">
+        <div>
+          <div class="player-title">СЕЙЧАС ИГРАЕТ</div>
+          <div class="track-name">REGISTAN NIGHTS</div>
+          <div class="track-meta">DILSHOD STUDIO · Samarkand Live</div>
+
+          <div class="progress-bar">
+            <div class="progress-inner"></div>
           </div>
-        </form>
-      </div>
-    </section>
 
-    <aside class="side">
-      <div>
-        <div class="side-title">Now playing</div>
-        <div class="track-name">Registan Nights · DILSHOD STUDIO</div>
-        <div class="progress">
-          <div class="progress-fill"></div>
+          <div class="time-row">
+            <span>00:24</span>
+            <span>03:18</span>
+          </div>
+
+          <div class="player-controls">
+            <button>⏮</button>
+            <button class="play">▶</button>
+            <button>⏭</button>
+          </div>
         </div>
-      </div>
-      <div class="side-footer">
-        <div>00:24 / 03:18</div>
-        <div class="pill">SAMARKAND • LIVE</div>
-      </div>
-    </aside>
-  </main>
-</body><img
-  src="https://upload.wikimedia.org/..."
-  alt="Dilshod Studio Logo"
-  class="logo-img"
-/>
-action="https://formsubmit.co/support@dilshodstudioofficial.com"
 
-</html>/assets/signature.png
-
+        <div class="player-footer">
+          Визуал: Регистан, Самарканд · авторский звук-дизайн
+        </div>
+      </aside>
+    </main>
+  </div>
+</body>
+</html>
