@@ -1,0 +1,355 @@
+<!-- DILSHOD STUDIO -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DILSHOD STUDIO | KO‘CHA LEGENDASI</title>
+
+<!-- ШРИФТ -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  body {
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at top, #020617, #000);
+    color:#fff;
+    line-height:1.5;
+  }
+
+  a { text-decoration:none; color:inherit; }
+
+  /* NAVBAR */
+  header {
+    position:sticky;
+    top:0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding:14px 20px;
+    z-index:10;
+  }
+  .nav {
+    max-width:1200px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+  }
+  .logo {
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:2px;
+    color:#34d399;
+    text-shadow: 0 0 12px #34d399;
+  }
+  .menu {
+    display:flex;
+    gap:26px;
+    font-size:13px;
+    letter-spacing:1.6px;
+    text-transform:uppercase;
+    color:#ccc;
+  }
+  .menu a:hover {
+    color:#34d399;
+    text-shadow:0 0 8px #34d399;
+    border-bottom:2px solid #34d399;
+    padding-bottom:3px;
+    transition:0.3s;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    max-width:1200px;
+    margin:auto;
+    padding:90px 20px 120px;
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    align-items:center;
+    gap:40px;
+  }
+  @media(max-width:900px){
+    .hero{ grid-template-columns:1fr; text-align:center; }
+  }
+
+  .hero-text h1 {
+    font-size:46px;
+    font-weight:700;
+    background: linear-gradient(90deg, #34d399, #67e8f9, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom:18px;
+  }
+
+  .hero-text p {
+    font-size:16px;
+    color:#aaa;
+    margin-bottom:30px;
+  }
+
+  .btn-main {
+    background:#34d399;
+    border:none;
+    padding:14px 28px;
+    border-radius:18px;
+    font-size:14px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    cursor:pointer;
+    color:#000;
+    transition:0.3s;
+  }
+  .btn-main:hover {
+    opacity:0.8;
+    transform:scale(1.05);
+    box-shadow: 0 0 15px #34d399;
+  }
+
+  /* INSTRUMENT ICONS */
+  .instruments {
+    display:flex;
+    gap:20px;
+    margin-top:20px;
+    opacity:0.9;
+    justify-content:center;
+  }
+  .instruments span {
+    font-size:26px;
+    filter: drop-shadow(0 0 10px rgba(52,211,153,0.4));
+  }
+
+  /* TRACK LIST */
+  .section {
+    max-width:1200px;
+    margin:auto;
+    padding:70px 20px;
+  }
+  .section-title {
+    font-size:22px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    margin-bottom:24px;
+    color:#34d399;
+    text-shadow:0 0 8px #34d399;
+    border-left:3px solid #34d399;
+    padding-left:12px;
+  }
+
+  .track-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:18px 22px;
+    margin-bottom:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    transition:0.2s;
+  }
+  .track-card:hover {
+    border-color:#34d399;
+    box-shadow:0 0 12px rgba(52,211,153,0.2);
+  }
+
+  .track-info h3 {
+    font-size:17px;
+    font-weight:700;
+  }
+  .track-info p {
+    font-size:11px;
+    color:#777;
+    margin-top:4px;
+    letter-spacing:1px;
+  }
+  .track-time {
+    font-size:12px;
+    color:#555;
+  }
+
+  .btn-play {
+    background:#000;
+    border:1px solid rgba(255,255,255,0.12);
+    padding:8px 14px;
+    border-radius:12px;
+    font-size:12px;
+    cursor:pointer;
+    color:#34d399;
+    display:flex;
+    align-items:center;
+    gap:6px;
+    transition:0.2s;
+  }
+  .btn-play:hover {
+    background:#34d399;
+    color:#000;
+  }
+
+  /* VIDEO PLACEHOLDER */
+  .video-box {
+    background: rgba(255,255,255,0.03);
+    border:1px dashed rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:40px;
+    text-align:center;
+    color:#666;
+    font-size:14px;
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+  @media(max-width:900px){
+    .contact-grid{grid-template-columns:1fr; text-align:center;}
+  }
+
+  .contact-info {
+    background: rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:18px;
+    padding:20px;
+  }
+
+  .contact-item {
+    margin-bottom:12px;
+    font-size:14px;
+    opacity:0.8;
+  }
+
+  .socials {
+    display:flex;
+    gap:20px;
+    margin-top:12px;
+    justify-content:center;
+  }
+
+  .socials a {
+    font-size:22px;
+    transition:0.3s;
+  }
+  .socials a:hover {
+    color:#34d399;
+    text-shadow:0 0 10px #34d399;
+    transform:scale(1.2);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top:1px solid rgba(255,255,255,0.07);
+    padding:20px;
+    text-align:center;
+    font-size:12px;
+    color:#444;
+    letter-spacing:1.4px;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">DILSHOD STUDIO</div>
+    <div class="menu">
+      <a href="#home">Главная</a>
+      <a href="#about">Об артисте</a>
+      <a href="#music">Музыка</a>
+      <a href="#video">Видео</a>
+      <a href="#contact">Контакты</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<main class="hero" id="home">
+  <div class="hero-text">
+    <h1>KO‘CHA LEGENDASI</h1>
+    <p>Голос улицы. Музыка души. Живой sound fusion с пианино, саксофоном, гитарой и глубоким басом.</p>
+    <button class="btn-main">Слушать новый сингл</button>
+
+    <div class="instruments">
+      <span>🎹</span>
+      <span>🎷</span>
+      <span>🎸</span>
+      <span>🔊</span>
+    </div>
+  </div>
+</main>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-title">Об артисте</div>
+  <p style="font-size:15px; color:#aaa;">
+    Dilshod Studio — рэп-артист и продюсер, который создаёт музыку как живую историю. Его стиль объединяет уличную честность,
+    кинематографичную атмосферу и живые инструменты. В его треках звучит драматичный пианино-progressive, soulful саксофон,
+    energiyali gitara drive и chuqur sahna bass punch.
+  </p>
+</section>
+
+<!-- MUSIC -->
+<section class="section" id="music">
+  <div class="section-title">Музыка / Релизы</div>
+
+  <div class="track-card">
+    <div class="track-info">
+      <h3>1. Ko‘cha Legendasi</h3>
+      <p>Official Single</p>
+    </div>
+    <div class="track-time">3:40</div>
+    <button class="btn-play">▶ Play</button>
+  </div>
+
+  <div class="track-card">
+    <div class="track-info">
+      <h3>2. Night City Flow</h3>
+      <p>Live Session</p>
+    </div>
+    <div class="track-time">4:12</div>
+    <button class="btn-play">▶ Play</button>
+  </div>
+
+  <div class="track-card">
+    <div class="track-info">
+      <h3>3. Studio Fusion Intro</h3>
+      <p>Piano / Sax / Guitar / Bass</p>
+    </div>
+    <div class="track-time">2:58</div>
+    <button class="btn-play">▶ Play</button>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="section" id="video">
+  <div class="section-title">Видео / Live Clip</div>
+  <div class="video-box">Скоро тут появится официальный клип или live-выступление…</div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="section-title">Контакты / Booking</div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="contact-item">📞 +998 ** *** ** **</div>
+      <div class="contact-item">✉️ booking@dilshodstudio.com</div>
+      <div class="contact-item">🎶 Hip-Hop / Live Fusion артист</div>
+      <div class="socials">
+        <a href="#">📱 Instagram</a>
+        <a href="#">▶ YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Dilshod Studio – Official Music Artist ©2025
+</footer>
+
+<!-- DILSHOD STUDIO -->
+</body>
+</html>
