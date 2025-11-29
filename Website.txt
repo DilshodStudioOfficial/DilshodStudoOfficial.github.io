@@ -1,0 +1,355 @@
+import { motion } from "framer-motion";
+import { Play, Music2, Instagram, Youtube, MessageCircle, Phone, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+
+export default function Website() {
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Music", href: "#music" },
+    { label: "Video", href: "#video" },
+    { label: "Contact", href: "#contact" },
+  ];
+
+  const tracks = [
+    {
+      title: "Ko‘cha Legendasi",
+      subtitle: "Official Single",
+      length: "3:40",
+    },
+    {
+      title: "Night City Flow",
+      subtitle: "Instrumental Live Session",
+      length: "4:12",
+    },
+    {
+      title: "Dilshod Studio Intro",
+      subtitle: "Piano / Sax / Guitar",
+      length: "2:58",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-neutral-900 text-white font-sans">
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 text-xs font-bold tracking-tight">
+              DS
+            </div>
+            <div className="leading-tight">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                Dilshod Studio
+              </p>
+              <p className="text-[11px] text-neutral-300">Official Artist Website</p>
+            </div>
+          </div>
+
+          <nav className="hidden items-center gap-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-300 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-white hover:underline hover:decoration-emerald-400/80 hover:decoration-2 hover:underline-offset-8"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+      </header>
+
+      {/* HERO */}
+      <main id="home" className="mx-auto max-w-6xl px-4 pt-10 pb-20 md:px-6 md:pt-16">
+        <section className="grid gap-10 md:grid-cols-[1.3fr,1fr] md:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+              Official Music Page
+            </p>
+            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Ko‘cha ruhidan sahnaga:
+              <span className="block bg-gradient-to-r from-emerald-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">
+                Dilshod Studio — Ko‘cha Legendasi
+              </span>
+            </h1>
+            <p className="max-w-xl text-sm text-neutral-300 md:text-base">
+              Rasmiy sahifa: jonli pianino, saxafon, gitara va chuqur bass bilan yo‘g‘rilgan
+              hip-hop. Shaharning kechasi, ko‘chaning nafasini va haqiqiy hayot hikoyasini 
+              o‘zida jamlagan treklar.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Button className="flex items-center gap-2 rounded-2xl px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em]">
+                <Play className="h-4 w-4" />
+                Play Latest Single
+              </Button>
+              <button className="rounded-2xl border border-white/20 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-200 transition hover:border-emerald-400/80 hover:text-white">
+                Listen on Platforms
+              </button>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-6 text-[11px] text-neutral-400">
+              <div>
+                <p className="font-semibold text-neutral-200">Latest Release</p>
+                <p>“Ko‘cha Legendasi” — 2025</p>
+              </div>
+              <div>
+                <p className="font-semibold text-neutral-200">Style</p>
+                <p>Rap / Live Band / Urban Fusion</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT HERO CARD */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            <Card className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900/90 to-black/90 p-[1px]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(16,185,129,0.18),_transparent_55%),_radial-gradient(circle_at_bottom,_rgba(56,189,248,0.16),_transparent_55%)]" />
+              <CardContent className="relative space-y-5 p-6">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
+                      Dilshod Studio
+                    </p>
+                    <p className="text-sm font-semibold">Ko‘cha Legendasi</p>
+                    <p className="text-[11px] text-neutral-400">Official Single • 2025</p>
+                  </div>
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-black/60">
+                    <Music2 className="h-6 w-6" />
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-[11px] text-neutral-300">
+                  <p>
+                    Piano, saxofon, gitara va chuqur bass birlashgan urban simfoniya. 
+                    Har bir bar — ko‘cha hikoyasi, har bir zarba — sahna nafasidir.
+                  </p>
+                  <p className="text-[10px] text-neutral-400">
+                    “Ko‘cha seni sinaydi, lekin legendni hech qachon o‘chira olmaydi.”
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-3 text-[11px] text-neutral-300">
+                  <div>
+                    <p className="font-semibold text-neutral-100">Instruments</p>
+                    <p>Pianino • Saksafon • Gitara • Bass</p>
+                  </div>
+                  <div className="flex gap-3 text-neutral-400">
+                    <Instagram className="h-4 w-4 cursor-pointer transition hover:text-white" />
+                    <Youtube className="h-4 w-4 cursor-pointer transition hover:text-white" />
+                    <MessageCircle className="h-4 w-4 cursor-pointer transition hover:text-white" />
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section id="about" className="mt-20 space-y-6">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-300">
+            About Artist
+          </h2>
+          <div className="grid gap-8 md:grid-cols-[1.3fr,1fr]">
+            <div className="space-y-4 text-sm text-neutral-300 md:text-[15px]">
+              <p>
+                Dilshod Studio — sahna nomi ostida ijod qiluvchi rap-artist va produser, 
+                ko‘cha hayoti, shahar kechasi va real hissiyotlarni jonli instrumentlar 
+                bilan birlashtirgan uslubi bilan tanilgan.
+              </p>
+              <p>
+                Har bir trek — bu pianino introsi, saxafonning nostaljik nafaslari, gitaraning 
+                ritmik harakati va bassning yurak zarbalari orqali bayon qilingan hikoya. 
+                Matnlar motivatsiya, qat’iyat, ichki kurash va o‘z yo‘lini topish haqida.
+              </p>
+              <p>
+                Dilshod Studio musiqasi sahnada ham, quloqchinlarda ham kino kadrlaridek 
+                tasvir uyg‘otadi: ko‘cha chiroqlari, yomg‘irli asfalt, tungi shahar va 
+                jim, lekin kuchli monologlar.
+              </p>
+            </div>
+
+            <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-5 text-[12px] text-neutral-200">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
+                Artist Info
+              </p>
+              <div className="space-y-2">
+                <p><span className="font-semibold text-neutral-50">Shahar:</span> Urban City Vibes</p>
+                <p><span className="font-semibold text-neutral-50">Janr:</span> Hip-Hop, Live Fusion, Urban Storytelling</p>
+                <p><span className="font-semibold text-neutral-50">Til:</span> O‘zbek / Rus mix</p>
+                <p><span className="font-semibold text-neutral-50">Studio:</span> Dilshod Studio (Official)</p>
+              </div>
+              <p className="text-[11px] text-neutral-400">
+                Bookings, collab va sahna chiqishlari uchun pastdagi kontaktlar orqali bog‘laning.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* MUSIC SECTION */}
+        <section id="music" className="mt-20 space-y-6">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-300">
+                Music / Releases
+              </h2>
+              <p className="text-sm text-neutral-300">
+                Rasmiy treklar, live versiyalar va studiyada yozilgan maxsus performance’lar.
+              </p>
+            </div>
+            <button className="text-[10px] font-semibold uppercase tracking-[0.25em] text-emerald-300 hover:text-emerald-200">
+              Open Full Discography
+            </button>
+          </div>
+
+          <div className="space-y-3">
+            {tracks.map((track, index) => (
+              <div
+                key={track.title}
+                className="flex items-center justify-between gap-4 rounded-2xl border border-white/5 bg-white/5 px-4 py-3 text-sm"
+              >
+                <div className="flex items-center gap-3">
+                  <button className="flex h-8 w-8 items-center justify-center rounded-full border border-white/10 bg-black/70 text-[10px]">
+                    <Play className="h-3 w-3" />
+                  </button>
+                  <div>
+                    <p className="text-[13px] font-semibold text-neutral-50">
+                      {index + 1}. {track.title}
+                    </p>
+                    <p className="text-[11px] text-neutral-400">{track.subtitle}</p>
+                  </div>
+                </div>
+                <div className="text-right text-[11px] text-neutral-400">
+                  <p>{track.length}</p>
+                  <p>Single</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* VIDEO SECTION */}
+        <section id="video" className="mt-20 space-y-6">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-300">
+            Video / Live Session
+          </h2>
+          <p className="max-w-xl text-sm text-neutral-300">
+            “Ko‘cha Legendasi” uchun rasmiy klip va studio live sessiyalar tez orada shu sahifaga 
+            joylanadi. Hozircha esa YouTube kanaliga o‘tib, backstage lavhalarini kuzatishingiz mumkin.
+          </p>
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-5 text-[13px] text-neutral-200">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
+              Video Placeholder
+            </p>
+            <p className="mt-2 text-sm text-neutral-200">
+              Bu yerda YouTube yoki boshqa platformadan klip / live video embed qilinadi.
+            </p>
+            <div className="mt-4 flex flex-wrap items-center gap-3">
+              <button className="flex items-center gap-2 rounded-2xl border border-white/15 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.25em]">
+                <Youtube className="h-4 w-4" />
+                Open YouTube Channel
+              </button>
+              <button className="rounded-2xl border border-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.22em] text-neutral-300 hover:border-emerald-400/70 hover:text-white">
+                Watch Backstage
+              </button>
+            </div>
+          </div>
+        </section>
+
+        {/* CONTACT SECTION */}
+        <section id="contact" className="mt-20 mb-10 space-y-6">
+          <h2 className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral-300">
+            Contact / Booking
+          </h2>
+          <div className="grid gap-8 md:grid-cols-[1.1fr,1fr]">
+            <div className="space-y-4 text-sm text-neutral-300">
+              <p>
+                Sahna chiqishlari, collab, studio ishlar va individual loyihalar uchun bog‘laning. 
+                Har bir yozuv professional yondashuv, jonli instrumentlar va haqiqiy kayfiyat bilan 
+                ishlanadi.
+              </p>
+              <form className="space-y-3 text-[13px]">
+                <div className="grid gap-3 md:grid-cols-2">
+                  <div>
+                    <label className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-neutral-400">
+                      Ism
+                    </label>
+                    <input
+                      className="w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm outline-none ring-0 placeholder:text-neutral-500 focus:border-emerald-400/80"
+                      placeholder="Ismingiz"
+                    />
+                  </div>
+                  <div>
+                    <label className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-neutral-400">
+                      Email
+                    </label>
+                    <input
+                      className="w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm outline-none ring-0 placeholder:text-neutral-500 focus:border-emerald-400/80"
+                      placeholder="example@mail.com"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <label className="mb-1 block text-[11px] uppercase tracking-[0.2em] text-neutral-400">
+                    Xabar
+                  </label>
+                  <textarea
+                    rows={4}
+                    className="w-full rounded-xl border border-white/10 bg-black/60 px-3 py-2 text-sm outline-none ring-0 placeholder:text-neutral-500 focus:border-emerald-400/80"
+                    placeholder="Qaysi turdagi loyihaga qiziqyapsiz? Sahna, klip, collab…"
+                  />
+                </div>
+                <Button className="mt-1 rounded-2xl px-5 py-2 text-[11px] font-semibold uppercase tracking-[0.25em]">
+                  Send Request
+                </Button>
+              </form>
+            </div>
+
+            <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-5 text-[13px] text-neutral-200">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-emerald-300">
+                Direct Contacts
+              </p>
+              <div className="space-y-2 text-sm">
+                <p className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-neutral-300" />
+                  <span>+998 ** *** ** **</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-neutral-300" />
+                  <span>booking@dilshodstudio.com</span>
+                </p>
+                <p className="flex items-center gap-2">
+                  <Instagram className="h-4 w-4 text-neutral-300" />
+                  <span>@dilshod_studio</span>
+                </p>
+              </div>
+              <p className="pt-2 text-[11px] text-neutral-400">
+                Iltimos, joy, sana, tadbir turi va taxminiy budjetni xabarda ko‘rsating — 
+                javob aniqroq va tezroq bo‘ladi.
+              </p>
+            </div>
+          </div>
+
+          <footer className="mt-10 border-t border-white/5 pt-6 text-[11px] text-neutral-500">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <p>© {new Date().getFullYear()} Dilshod Studio. All rights reserved.</p>
+              <p className="uppercase tracking-[0.25em] text-neutral-500">
+                Dilshod Studio — Official Music Page
+              </p>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+  );
+}
