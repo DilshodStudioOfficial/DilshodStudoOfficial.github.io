@@ -1,387 +1,118 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dilshod Studio Official</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
+import { motion } from "framer-motion";
+import { Play, Music2, Instagram, Youtube, MessageCircle, Phone, Mail } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 
-    body {
-      min-height: 100vh;
-      background: url("https://upload.wikimedia.org/wikipedia/commons/4/4e/Registan_Samarkand_2014.jpg")
-                  no-repeat center center fixed;
-      background-size: cover;
-    }
+export default function Website() {
+  const navItems = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Music", href: "#music" },
+    { label: "Video", href: "#video" },
+    { label: "Contact", href: "#contact" },
+  ];
 
-    .overlay {
-      min-height: 100vh;
-      background: rgba(255, 255, 255, 0.78);
-      backdrop-filter: blur(4px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 16px 40px;
-    }
+  const tracks = [
+    {
+      title: "Ko‘cha Legendasi",
+      subtitle: "Official Single",
+      length: "3:40",
+    },
+    {
+      title: "Night City Flow",
+      subtitle: "Instrumental Live Session",
+      length: "4:12",
+    },
+    {
+      title: "Dilshod Studio Intro",
+      subtitle: "Piano / Sax / Guitar",
+      length: "2:58",
+    },
+  ];
 
-    header {
-      width: 100%;
-      max-width: 960px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 32px;
-    }
-
-    .logo-text {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-circle {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      border: 2px solid #222;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .nav-buttons {
-      display: flex;
-      gap: 10px;
-    }
-
-    .nav-buttons button {
-      border-radius: 999px;
-      border: none;
-      padding: 8px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      background: #f2f2f2;
-    }
-
-    .nav-buttons button:hover {
-      background: #e2e2e2;
-    }
-
-    main {
-      width: 100%;
-      max-width: 960px;
-      display: grid;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.4fr);
-      gap: 24px;
-    }
-
-    @media (max-width: 768px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-      }
-      .nav-buttons {
-        align-self: flex-end;
-      }
-    }
-
-    .card {
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 22px 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    }
-
-    .badge {
-      display: inline-block;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #777;
-      margin-bottom: 8px;
-    }
-
-    h1 {
-      font-size: 26px;
-      line-height: 1.2;
-      margin-bottom: 8px;
-      color: #111;
-    }
-
-    .subtitle {
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 18px;
-    }
-
-    .primary-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .btn-main {
-      border-radius: 999px;
-      border: none;
-      padding: 10px 18px;
-      font-size: 14px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-fill {
-      background: #16a34a;
-      color: white;
-    }
-
-    .btn-fill:hover {
-      background: #15803d;
-    }
-
-    .btn-outline {
-      background: white;
-      color: #111;
-      border: 1px solid #ddd;
-    }
-
-    .btn-outline:hover {
-      background: #f5f5f5;
-    }
-
-    .subscribe-box {
-      margin-top: 10px;
-      padding-top: 14px;
-      border-top: 1px solid #f0f0f0;
-      font-size: 13px;
-    }
-
-    .subscribe-box label {
-      display: block;
-      margin-bottom: 6px;
-      color: #444;
-    }
-
-    .subscribe-row {
-      display: flex;
-      gap: 8px;
-      margin-top: 4px;
-    }
-
-    .subscribe-row input[type="email"] {
-      flex: 1;
-      padding: 10px 12px;
-      border-radius: 999px;
-      border: 1px solid #ddd;
-      font-size: 14px;
-    }
-
-    .subscribe-row input[type="email"]:focus {
-      outline: none;
-      border-color: #16a34a;
-      box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.18);
-    }
-
-    /* ВАЖНО: кнопка ПОДПИСАТЬСЯ – РУССКИМИ БУКВАМИ */
-    .subscribe-row button {
-      border-radius: 999px;
-      border: none;
-      padding: 10px 16px;
-      background: #16a34a;
-      color: white;
-      font-size: 14px;
-      cursor: pointer;
-      white-space: nowrap;
-    }
-
-    .subscribe-row button:hover {
-      background: #15803d;
-    }
-
-    .player-card {
-      background: #020617;
-      color: white;
-      border-radius: 24px;
-      padding: 20px 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 260px;
-    }
-
-    .player-title {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #a5b4fc;
-      margin-bottom: 6px;
-    }
-
-    .track-name {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .track-meta {
-      font-size: 12px;
-      color: #e5e7eb;
-      margin-bottom: 14px;
-    }
-
-    .progress-bar {
-      width: 100%;
-      height: 4px;
-      border-radius: 999px;
-      background: #1f2937;
-      overflow: hidden;
-      margin-bottom: 10px;
-    }
-
-    .progress-inner {
-      width: 32%;
-      height: 100%;
-      background: linear-gradient(90deg, #a855f7, #22c55e);
-    }
-
-    .time-row {
-      display: flex;
-      justify-content: space-between;
-      font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 14px;
-    }
-
-    .player-controls {
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 6px;
-    }
-
-    .player-controls button {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      border: none;
-      background: #111827;
-      color: white;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .player-controls button.play {
-      background: #22c55e;
-      color: #022c22;
-      font-size: 20px;
-    }
-
-    .player-footer {
-      font-size: 11px;
-      color: #9ca3af;
-      text-align: center;
-    }
-  </style>
-</head>
-<body>
-  <div class="overlay">
-    <!-- ШАПКА -->
-    <header>
-      <div class="logo-text">
-        <div class="logo-circle">DS</div>
-        <div>
-          <div style="font-size:14px;font-weight:600;">DILSHOD STUDIO</div>
-          <div style="font-size:11px;color:#666;">Samarkand • Official</div>
-        </div>
-      </div>
-
-      <div class="nav-buttons">
-        <button>Главная</button>
-        <button>Релизы</button>
-        <button>Контакты</button>
-      </div>
-    </header>
-
-    <!-- ОСНОВНОЙ КОНТЕНТ -->
-    <main>
-      <!-- ЛЕВАЯ КАРТОЧКА -->
-      <section class="card">
-        <div class="badge">НОВЫЕ РЕЛИЗЫ · EXCLUSIVE</div>
-        <h1>SAMARKAND SOUND DESIGN</h1>
-        <p class="subtitle">
-          Эксклюзивные треки, саунд-дизайн и авторские проекты.
-          Подпишитесь, чтобы первыми получать новые релизы и свежие демо.
-        </p>
-
-        <div class="primary-buttons">
-          <button class="btn-main btn-fill">🎧 Слушать превью</button>
-          <button class="btn-main btn-outline">⬇ Скачать демо-трек</button>
-        </div>
-
-        <!-- ФОРМА ПОДПИСКИ -->
-        <div class="subscribe-box">
-          <label for="email">Подписка на релизы</label>
-          <form
-            action="#"
-            method="POST"
-            onsubmit="alert('Спасибо за подписку!'); return false;"
-          >
-            <div class="subscribe-row">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Ваш e-mail"
-                required
-              />
-              <!-- ВОТ ЗДЕСЬ КНОПКА НА РУССКОМ -->
-              <button type="submit">Подписаться</button>
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-black via-slate-950 to-neutral-900 text-white font-sans">
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-black/60 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+          <div className="flex items-center gap-2">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 text-xs font-bold tracking-tight">
+              DS
             </div>
-          </form>
-        </div>
-      </section>
-
-      <!-- ПРАВАЯ КАРТОЧКА – ПЛЕЙЕР -->
-      <aside class="card player-card">
-        <div>
-          <div class="player-title">СЕЙЧАС ИГРАЕТ</div>
-          <div class="track-name">REGISTAN NIGHTS</div>
-          <div class="track-meta">DILSHOD STUDIO · Samarkand Live</div>
-
-          <div class="progress-bar">
-            <div class="progress-inner"></div>
+            <div className="leading-tight">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-emerald-300">
+                Dilshod Studio
+              </p>
+              <p className="text-[11px] text-neutral-300">Official Artist Website</p>
+            </div>
           </div>
 
-          <div class="time-row">
-            <span>00:24</span>
-            <span>03:18</span>
-          </div>
-
-          <div class="player-controls">
-            <button>⏮</button>
-            <button class="play">▶</button>
-            <button>⏭</button>
-          </div>
+          <nav className="hidden items-center gap-6 text-xs font-medium uppercase tracking-[0.22em] text-neutral-300 md:flex">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="transition hover:text-white hover:underline hover:decoration-emerald-400/80 hover:decoration-2 hover:underline-offset-8"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
         </div>
+      </header>
 
-        <div class="player-footer">
-          Визуал: Регистан, Самарканд · авторский звук-дизайн
-        </div>
-      </aside>
-    </main>
-  </div>
-</body>
-</html>
+      {/* HERO */}
+      <main id="home" className="mx-auto max-w-6xl px-4 pt-10 pb-20 md:px-6 md:pt-16">
+        <section className="grid gap-10 md:grid-cols-[1.3fr,1fr] md:items-center">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-emerald-300">
+              Official Music Page
+            </p>
+            <h1 className="text-3xl font-semibold leading-tight tracking-tight sm:text-4xl md:text-5xl">
+              Ko‘cha ruhidan sahnaga:
+              <span className="block bg-gradient-to-r from-emerald-300 via-cyan-300 to-sky-400 bg-clip-text text-transparent">
+                Dilshod Studio — Ko‘cha Legendasi
+              </span>
+            </h1>
+            <p className="max-w-xl text-sm text-neutral-300 md:text-base">
+              Rasmiy sahifa: jonli pianino, saxafon, gitara va chuqur bass bilan yo‘g‘rilgan
+              hip-hop. Shaharning kechasi, ko‘chaning nafasini va haqiqiy hayot hikoyasini 
+              o‘zida jamlagan treklar.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <Button className="flex items-center gap-2 rounded-2xl px-5 py-2 text-xs font-semibold uppercase tracking-[0.25em]">
+                <Play className="h-4 w-4" />
+                Play Latest Single
+              </Button>
+              <button className="rounded-2xl border border-white/20 px-4 py-2 text-[10px] font-medium uppercase tracking-[0.25em] text-neutral-200 transition hover:border-emerald-400/80 hover:text-white">
+                Listen on Platforms
+              </button>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-6 text-[11px] text-neutral-400">
+              <div>
+                <p className="font-semibold text-neutral-200">Latest Release</p>
+                <p>“Ko‘cha Legendasi” — 2025</p>
+              </div>
+              <div>
+                <p className="font-semibold text-neutral-200">Style</p>
+                <p>Rap / Live Band / Urban Fusion</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* RIGHT HERO CARD */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+          >
+            <Card className="relative overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-b from-neutral-900/90 to-black/90 p-[1px]">
+              <div className="absolute inset-0 bg-[radial-gradient(circle at top, #d4a017, #000);
+}
