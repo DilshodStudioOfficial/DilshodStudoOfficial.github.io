@@ -1,296 +1,76 @@
-<!-- DILSHOD STUDIO -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DILSHOD STUDIO | Official Music</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
-<style>
-  * {margin:0; padding:0; box-sizing:border-box;}
-
-  body {
-    font-family:'Montserrat', sans-serif;
-    background: linear-gradient(135deg, #f6d365, #d4a017, #b8860b);
-    min-height:100vh;
-    color:#222;
-  }
-
-  header {
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(10px);
-    padding:18px 20px;
-    position:sticky;
-    top:0;
-    z-index:10;
-  }
-
-  .nav-container {
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-  }
-
-  .logo {
-    font-size:22px;
-    font-weight:800;
-    letter-spacing:2px;
-    color:#000;
-    text-transform:uppercase;
-  }
-
-  .menu {
-    display:flex;
-    gap:28px;
-    font-size:13px;
-    font-weight:600;
-    text-transform:uppercase;
-  }
-
-  .menu a:hover {
-    opacity:0.6;
-    transition:0.2s;
-  }
-
-  .hero {
-    max-width:1200px;
-    margin:auto;
-    padding:110px 20px 80px;
-    text-align:center;
-  }
-
-  .hero h1 {
-    font-size:58px;
-    font-weight:800;
-    text-transform:uppercase;
-    margin-bottom:18px;
-    color:#000;
-  }
-
-  .hero p {
-    font-size:18px;
-    font-weight:600;
-    margin-bottom:32px;
-    opacity:0.9;
-  }
-
-  .btn {
-    background:#000;
-    border:none;
-    padding:15px 32px;
-    border-radius:30px;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
-    color:#facc15;
-  }
-  .btn:hover {opacity:0.8; transition:0.2s;}
-
-  .icons {
-    display:flex;
-    justify-content:center;
-    gap:22px;
-    margin-top:40px;
-    font-size:32px;
-  }
-
-  .section {
-    max-width:1100px;
-    margin:auto;
-    padding:60px 20px;
-  }
-
-  .section-title {
-    font-size:26px;
-    font-weight:800;
-    text-align:center;
-    text-transform:uppercase;
-    margin-bottom:30px;
-    color:#000;
-  }
-
-  /* TRACK GRID */
-  .tracks {
-    display:grid;
-    gap:18px;
-    grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-  }
-
-  .track {
-    background: rgba(255,255,255,0.3);
-    padding:20px;
-    border-radius:20px;
-    backdrop-filter: blur(8px);
-    border:1px solid rgba(255,255,255,0.4);
-  }
-
-  .track h3 {
-    font-size:20px;
-    font-weight:800;
-    margin-bottom:6px;
-  }
-
-  .track span {
-    font-size:13px;
-    opacity:0.8;
-  }
-
-  .btn-play {
-    margin-top:14px;
-    width:100%;
-    background:#000;
-    border:none;
-    padding:10px;
-    border-radius:22px;
-    font-size:15px;
-    font-weight:600;
-    color:#facc15;
-    cursor:pointer;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:8px;
-  }
-
-  .btn-play:hover {opacity:0.8;}
-
-  /* CONTACT BOX */
-  .contact-box {
-    text-align:center;
-    background:rgba(255,255,255,0.3);
-    padding:22px;
-    border-radius:18px;
-    backdrop-filter: blur(6px);
-    border:1px solid rgba(255,255,255,0.35);
-  }
-
-  .contact-box a {
-    display:block;
-    font-size:17px;
-    font-weight:600;
-    margin:10px 0;
-    color:#000;
-  }
-  .contact-box a:hover {opacity:0.6;}
-
-  .socials {
-    margin-top:20px;
-    display:flex;
-    justify-content:center;
-    gap:15px;
-  }
-  .socials a {
-    background:#000;
-    padding:8px 18px;
-    border-radius:30px;
-    font-size:14px;
-    font-weight:600;
-    color:#facc15;
-  }
-  .socials a:hover{opacity:0.8}
-
-  footer {
-    text-align:center;
-    font-size:14px;
-    padding:22px;
-    font-weight:800;
-    color:#000;
-    text-transform:uppercase;
-    letter-spacing:2px;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dilshod Studio — Samarkand MP3 Music</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #000;
+    }
+    header {
+      padding: 40px;
+      text-align: center;
+      font-size: 42px;
+      font-weight: bold;
+      border-bottom: 2px solid #eee;
+    }
+    .subtitle {
+      text-align: center;
+      font-size: 20px;
+      margin-top: -10px;
+      color: #555;
+    }
+    .content {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+    .music-card {
+      padding: 20px;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      background: #fafafa;
+    }
+    .music-card h3 {
+      margin: 0 0 10px 0;
+      font-size: 24px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+      border-top: 2px solid #eee;
+      font-size: 14px;
+      color: #666;
+    }
+  </style>
 </head>
-
 <body>
+  <header>DILSHOD STUDIO — SAMARKAND</header>
+  <div class="subtitle">MP3 MUSIC PLATFORM</div>
 
-<header>
-  <div class="nav-container">
-    <div class="logo">Dilshod Studio</div>
-    <nav class="menu">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#tracks">Tracks</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="home">
-  <h1>Dilshod Studio</h1>
-  <p>Official Musician Website</p>
-  <button class="btn">Listen Latest Track</button>
-
-  <div class="icons">
-    <span>🎹</span>
-    <span>🎷</span>
-    <span>🎸</span>
-    <span>🔊</span>
-    <span>🥁</span>
-    <span>🎤</span>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
-  <div class="section-title">About The Artist</div>
-  <p style="text-align:center; font-size:17px; font-weight:600;">
-    Dilshod Studio – rap artist & producer blending urban lyrics with live instrumental fusion.
-    The project carries authenticity, motivation and unique sound energy inspired from the streets.
-  </p>
-</section>
-
-<!-- TRACKS -->
-<section class="section" id="tracks">
-  <div class="section-title">Latest Music</div>
-  <div class="tracks">
-    
-    <div class="track">
-      <h3>KO‘CHA LEGENDASI</h3>
-      <span>Rap / Piano / Sax / Guitar / Bass</span>
-      <button class="btn-play">▶ Play</button>
+  <div class="content">
+    <div class="music-card">
+      <h3>Новый трек — KAYF</h3>
+      <p>Скачать MP3 | Слушать онлайн</p>
     </div>
 
-    <div class="track">
-      <h3>Night City Flow</h3>
-      <span>Live Instrumental Session</span>
-      <button class="btn-play">▶ Play</button>
+    <div class="music-card">
+      <h3>Хиты недели</h3>
+      <p>Лучшие треки Samarkand Live</p>
     </div>
 
-    <div class="track">
-      <h3>Golden Soul Mix</h3>
-      <span>Piano + Sax + Bass Drop</span>
-      <button class="btn-play">▶ Play</button>
+    <div class="music-card">
+      <h3>Альбомы</h3>
+      <p>Эксклюзивные релизы Dilshod Studio</p>
     </div>
-
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
-  <div class="section-title">Artist Contact</div>
-
-  <div class="contact-box">
-    <a href="tel:+4915212446792">🇩🇪 +49 152 1244 6792</a>
-    <a href="tel:+380936651234">🇺🇦 +380 93 665 1234</a>
-    <a href="tel:+998975764585">🇺🇿 +998 97 576 4585</a>
-    <a href="tel:+330673613839">🇫🇷 +33 06 73 61 38 39</a>
   </div>
 
-  <div class="socials">
-    <a href="#" target="_blank">Instagram</a>
-    <a href="#" target="_blank">YouTube</a>
-    <a href="#" target="_blank">TikTok</a>
-  </div>
-</section>
-
-<footer>
-  DILSHOD STUDIO
-</footer>
-
-<!-- DILSHOD STUDIO -->
+  <footer>© 2025 Dilshod Studio — Samarkand. Все права защищены.</footer>
 </body>
 </html>
